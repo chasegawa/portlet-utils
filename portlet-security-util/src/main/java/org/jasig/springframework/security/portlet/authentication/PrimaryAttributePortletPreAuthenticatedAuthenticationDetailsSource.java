@@ -26,11 +26,8 @@ import javax.portlet.PortletPreferences;
 import javax.portlet.PortletRequest;
 
 import org.apache.commons.lang.StringUtils;
-import org.jasig.springframework.security.portlet.authentication.PortletPreAuthenticatedAuthenticationDetailsSource;
-import org.jasig.springframework.security.portlet.authentication.PreAuthenticatedGrantedAuthoritiesPortletAuthenticationDetails;
 import org.springframework.security.access.AccessDeniedException;
 import org.springframework.security.core.GrantedAuthority;
-import org.springframework.web.portlet.ModelAndViewDefiningException;
 
 /**
  * Extention of portlet pre-auth source that captures an attribute out of the portlet USER_INFO map
@@ -51,7 +48,9 @@ public class PrimaryAttributePortletPreAuthenticatedAuthenticationDetailsSource 
     private String primaryUserAttributesPreference = "primaryAttribute";
 
     /**
-     * Portlet preference to get the USER_INFO attribute names from. Defaults to "primaryAttribute"
+     * Portlet preference to get the USER_INFO attribute names from. Defaults to "primaryAttribute".
+     *
+     * @param primaryUserAttributesPreference Portlet preference to get the USER_INFO attribute names from
      */
     public void setPrimaryUserAttributesPreference(String primaryUserAttributesPreference) {
         this.primaryUserAttributesPreference = primaryUserAttributesPreference;
@@ -73,9 +72,8 @@ public class PrimaryAttributePortletPreAuthenticatedAuthenticationDetailsSource 
     /**
      * Get the user's primary attribute.
      *
-     * @param primaryUserAttributesPreference The portlet preference that contains a list of user attributes to inspect in order. The first attribute with a value is returned.
-     * @return The primary attribute, will never return null or empty string
-     * @throws ModelAndViewDefiningException If no emplid is found
+     * @param request Portlet Request
+     * @return The primary attribute, Will never return null or empty string
      */
     public final String getPrimaryUserAttribute(PortletRequest request) {
         final PortletPreferences preferences = request.getPreferences();

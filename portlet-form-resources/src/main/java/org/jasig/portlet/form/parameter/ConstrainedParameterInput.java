@@ -32,14 +32,14 @@ public interface ConstrainedParameterInput extends ParameterInput {
     /**
      * Get the list of valid options for this parameter.
      * 
-     * @return
+     * @return list of valid options for this parameter
      */
     public List<Option> getOptions();
     
     /**
      * Set the list of valid options for this parameter.
      * 
-     * @param options
+     * @param options list of valid options for this parameter
      */
     public void setOptions(List<Option> options);
     

@@ -38,7 +38,7 @@ public class MultiChoiceParameterInput implements ConstrainedParameterInput, Mul
     /**
      * Get the display configuration for this parameter.
      * 
-     * @return
+     * @return display configuration for this parameter
      */
     public MultiChoiceDisplay getDisplay() {
         return display;
@@ -47,7 +47,7 @@ public class MultiChoiceParameterInput implements ConstrainedParameterInput, Mul
     /**
      * Set the display configuration for this parameter.
      * 
-     * @param value
+     * @param value display configuration for this parameter
      */
     public void setDisplay(MultiChoiceDisplay value) {
         this.display = value;

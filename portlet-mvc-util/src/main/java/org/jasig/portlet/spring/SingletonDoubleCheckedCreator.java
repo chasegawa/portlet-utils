@@ -26,7 +26,6 @@ import org.apache.commons.lang.builder.ToStringStyle;
  * Provides a DoubleCheckedCreator impl that tracks the singleton instance internally
  * 
  * @author Eric Dalquist
- * @version $Revision$
  */
 public abstract class SingletonDoubleCheckedCreator<T> extends DoubleCheckedCreator<T> {
     private final AtomicBoolean creating = new AtomicBoolean(false);
@@ -35,8 +34,11 @@ public abstract class SingletonDoubleCheckedCreator<T> extends DoubleCheckedCrea
     
     /**
      * Called only once as long as it returns successfully
-     * 
+     *
      * @see DoubleCheckedCreator#create(Object...)
+     *
+     * @param args args to pass to singleton object creator
+     * @return object
      */
     protected abstract T createSingleton(Object... args);
 

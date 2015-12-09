@@ -30,14 +30,14 @@ public interface TextBasedParameterInput extends ParameterInput {
     /**
      * Get the display configuration for this parameter.
      * 
-     * @return
+     * @return display configuration for this parameter
      */
     public TextDisplay getDisplay();
     
     /**
      * Set the display configuration for this parameter.
      * 
-     * @param value
+     * @param display display configuration for this parameter
      */
     public void setDisplay(TextDisplay display);
     

@@ -38,6 +38,8 @@ public interface ExtendedRestOperations extends RestOperations {
      * Retrieve a representation by doing a GET on the specified URL.
      * The response (if any) is converted and returned.
      * <p>URI Template variables are expanded using the given URI variables, if any.
+     *
+     * @param <T> Class of the return response Type
      * @param url the URL
      * @param headers headers to set on the request
      * @param responseType the type of the return value
@@ -54,6 +56,7 @@ public interface ExtendedRestOperations extends RestOperations {
      * 
      * @param proxyResponse response to write the results of the request to
      * @param url the URL
+     * @param method HTTP method
      * @param headers header to set on the request
      * @param uriVariables the variables to expand the template
      * @return The number of bytes copied in the body
@@ -76,7 +79,10 @@ public interface ExtendedRestOperations extends RestOperations {
         void setHttpHeaders(HttpHeaders headers);
         
         /**
+         * Returns the output stream.
+         *
          * @return {@link OutputStream} to write the body of the original request to
+         * @throws IOException exception
          */
         OutputStream getOutputStream() throws IOException;
     }

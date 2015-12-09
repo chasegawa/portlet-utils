@@ -32,14 +32,14 @@ public interface MultiValuedParameterInput extends ParameterInput {
     /**
      * Get a list of default values for the associated parameter.
      * 
-     * @return
+     * @return list of default values for the associated parameter
      */
     public List<String> getDefaultValues();
     
     /**
      * Set a list of default values for the associated parameter.
      * 
-     * @param defaults
+     * @param defaultValues list of default values for the associated parameter
      */
     public void setDefaultValues(List<String> defaultValues);
     

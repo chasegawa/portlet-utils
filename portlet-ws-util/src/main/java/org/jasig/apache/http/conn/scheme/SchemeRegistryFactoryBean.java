@@ -38,7 +38,10 @@ public class SchemeRegistryFactoryBean extends AbstractFactoryBean<SchemeRegistr
     /**
      * If true {@link SchemeRegistryFactory#createDefault()} is used to create the {@link SchemeRegistry}
      * before the additional schemes are registered via {@link SchemeRegistry#register(Scheme)}, defaults
-     * to true; 
+     * to true;
+     *
+     * @param extendDefault true to to create the {@link SchemeRegistry}
+     * before the additional schemes are registered
      */
     public void setExtendDefault(boolean extendDefault) {
         this.extendDefault = extendDefault;
@@ -46,6 +49,8 @@ public class SchemeRegistryFactoryBean extends AbstractFactoryBean<SchemeRegistr
 
     /**
      * {@link Scheme}s to register with the {@link SchemeRegistry}
+     *
+     * @param schemes Schemes to register
      */
     public void setSchemes(Set<Scheme> schemes) {
         this.schemes = schemes;

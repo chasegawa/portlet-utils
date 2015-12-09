@@ -33,7 +33,7 @@ public class Option {
     /**
      * Get the value for this option.
      * 
-     * @return
+     * @return value for this option
      */
     public String getValue() {
         return value;
@@ -42,7 +42,7 @@ public class Option {
     /**
      * Set the value for this option.
      * 
-     * @param value
+     * @param value value for this option
      */
     public void setValue(String value) {
         this.value = value;
@@ -51,7 +51,7 @@ public class Option {
     /**
      * Get the key of the message to be used for this option's label.
      * 
-     * @return
+     * @return key of the message to be used for this option's label
      */
     public String getLabelKey() {
         return labelKey;
@@ -60,7 +60,7 @@ public class Option {
     /**
      * Set the key of the message to be used for this option's label.
      * 
-     * @param labelKey
+     * @param labelKey key of the message to be used for this option's label
      */
     public void setLabelKey(String labelKey) {
         this.labelKey = labelKey;

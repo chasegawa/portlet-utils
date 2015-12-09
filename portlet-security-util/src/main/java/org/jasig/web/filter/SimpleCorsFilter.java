@@ -16,7 +16,6 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-
 package org.jasig.web.filter;
 
 import java.io.IOException;
@@ -30,16 +29,16 @@ import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.lang.StringUtils;
-import org.jasig.springframework.security.filter.ComponentCorsFilter;
 
 /**
  * Default behavior for this filter is to allow origins from * (ie anywhere). It is not reccomended to use this default 
  * behavior except for development testing. When configuring the filter, the filter configuration parameters will 
  * overwrite any value set in a spring or other configuration file doing dependency injection and initialization.  
- * 
- * Multiple ways to configure this: 
+ * <br>
+ * Multiple ways to configure this:<br>
  * ** Config within web.xml:
- * 
+ * <br>
+ * <pre>{@code
  * <filter>
  *   <filter-name>Simple CORS Filter</filter-name>
  *   <filter-class>org.jasig.web.filter.SimpleCorsFilter</filter-class>
@@ -47,23 +46,26 @@ import org.jasig.springframework.security.filter.ComponentCorsFilter;
  *     <!-- Comma separated domain names -->
  *     <param-name>allowOrigin</param-name>
  *     <param-value>someDomain.org, another.com, jasig.org, apereo.org</param-value>
- *     
+ *
  *     <param-name>maxAge</param-name>
  *     <param-value>3600</param-value>
- *     
+ *
  *     <!-- Comma separated methods allowed -->
  *     <param-name>allowMethod</param-name>
  *     <param-value>POST, GET</param-value>
- *     
+ *
  *     <!--Comma separated list of allowed header values -->
  *     <param-name>allowHeaders</param-name>
  *     <param-value>Origin, X-Requested-With, Content-Type, Accept</param-value>
- *   </init-param>    
+ *   </init-param>
  * </filter>
- * 
+ * }</pre>
+ * <br>
  * ** Config with Spring Context
- * 1) Configure web.xml using DelegatingFilterProxy
- * 
+ * <ol>
+ * <li> Configure web.xml using DelegatingFilterProxy<br>
+ * <br>
+ * <pre>{@code
  * <filter>
  *   <filter-name>corsFilter</filter-name>
  *   <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
@@ -77,16 +79,20 @@ import org.jasig.springframework.security.filter.ComponentCorsFilter;
  *   <filter-name>corsFilter</filter-name>
  *   <url-pattern>*.html</url-pattern> <!-- set appropriately -->
  * </filter-mapping>
- * 
- * 2) Create your filter in your spring content config XML file (eg applicationContext.xml)
- * 
+ * }</pre>
+ * </li>
+ * <li> Create your filter in your spring content config XML file (eg applicationContext.xml)
+ *
+ * <pre>{@code
  * <bean name="corsFilter" class="org.jasig.web.filter.SimpleCorsFilter">
  *   <property name="allowMethod">POST,GET,PUT</property>
  *   <property name="maxAge">360</property>
  * </bean>
+ * }</pre>
+ * </li></ol>
  * 
  * @author chasegawa@unicon.net
- * @see ComponentCorsFilter
+ * @see org.jasig.springframework.security.filter.ComponentCorsFilter
  * @see javax.servlet.Filter
  */
 public class SimpleCorsFilter implements Filter {
@@ -145,7 +151,7 @@ public class SimpleCorsFilter implements Filter {
     /** 
      * Defaults to "Origin, X-Requested-With, Content-Type, Accept"
      * This value can be overwritten by any value configured in filter config parameters of web.xml
-     * @param allowHeaders
+     * @param allowHeaders comma-separated list of HTTP Headers to allow
      */
     public void setAllowHeaders(String allowHeaders) {
         this.allowHeaders = allowHeaders;
@@ -154,7 +160,7 @@ public class SimpleCorsFilter implements Filter {
     /**
      * Defaults to "POST, GET, PUT, OPTIONS, DELETE, HEAD"
      * This value can be overwritten by any value configured in filter config parameters of web.xml
-     * @param allowMethod
+     * @param allowMethod comma-separated list of HTTP Methods
      */
     public void setAllowMethod(String allowMethod) {
         this.allowMethod = allowMethod;

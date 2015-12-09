@@ -29,17 +29,17 @@ import org.joda.time.DateTimeZone;
 import org.joda.time.LocalTime;
 
 /**
- * Utility for use with JAXB to use Joda Time for dates/times/dateTimes.<br/>
+ * Utility for use with JAXB to use Joda Time for dates/times/dateTimes.<br>
  * Example Usage:
- * <pre>
-&lt;jaxb:bindings&gt;
-    &lt;jaxb:globalBindings fixedAttributeAsConstantProperty=&quot;true&quot; enableFailFastCheck=&quot;true&quot;&gt;
-        &lt;jaxb:javaType name=&quot;org.joda.time.DateTime&quot; xmlType=&quot;xs:dateTime&quot; parseMethod=&quot;org.jasig.portlet.jaxb.util.JodaTypeConverter.parseDateTime&quot; printMethod=&quot;org.jasig.portlet.jaxb.util.JodaTypeConverter.printDateTime&quot; /&gt;
-        &lt;jaxb:javaType name=&quot;org.joda.time.DateMidnight&quot; xmlType=&quot;xs:date&quot; parseMethod=&quot;org.jasig.portlet.jaxb.util.JodaTypeConverter.parseDate&quot; printMethod=&quot;org.jasig.portlet.jaxb.util.JodaTypeConverter.printDate&quot; /&gt;
-        &lt;jaxb:javaType name=&quot;org.joda.time.LocalTime&quot; xmlType=&quot;xs:time&quot; parseMethod=&quot;org.jasig.portlet.jaxb.util.JodaTypeConverter.parseTime&quot; printMethod=&quot;org.jasig.portlet.jaxb.util.JodaTypeConverter.printTime&quot; /&gt;
-    &lt;/jaxb:globalBindings&gt;
-&lt;/jaxb:bindings&gt;
- * </pre>
+ * <pre>{@code
+ * <jaxb:bindings>
+ *     <jaxb:globalBindings fixedAttributeAsConstantProperty="true" enableFailFastCheck="true">
+ *         <jaxb:javaType name="org.joda.time.DateTime" xmlType="xs:dateTime" parseMethod="org.jasig.portlet.jaxb.util.JodaTypeConverter.parseDateTime" printMethod="org.jasig.portlet.jaxb.util.JodaTypeConverter.printDateTime" />
+ *         <jaxb:javaType name="org.joda.time.DateMidnight" xmlType="xs:date" parseMethod="org.jasig.portlet.jaxb.util.JodaTypeConverter.parseDate" printMethod="org.jasig.portlet.jaxb.util.JodaTypeConverter.printDate" />
+ *         <jaxb:javaType name="org.joda.time.LocalTime" xmlType="xs:time" parseMethod="org.jasig.portlet.jaxb.util.JodaTypeConverter.parseTime" printMethod="org.jasig.portlet.jaxb.util.JodaTypeConverter.printTime" />
+ *     </jaxb:globalBindings>
+ * </jaxb:bindings>
+ * }</pre>
  * 
  * @author Eric Dalquist
  */

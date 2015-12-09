@@ -58,10 +58,6 @@ public class SpringELProcessor implements IExpressionProcessor, BeanFactoryAware
     private Properties properties = new Properties();
 
 
-    /**
-     * @param beanFactory
-     * @{inheritDoc}
-     */
     @Override
     public void setBeanFactory(BeanFactory beanFactory) throws BeansException {
         this.beanResolver = new BeanFactoryResolver(beanFactory);
@@ -78,9 +74,6 @@ public class SpringELProcessor implements IExpressionProcessor, BeanFactoryAware
     }
 
 
-    /**
-     * @{inheritDoc}
-     */
     @Override
     public String process(String value, PortletRequest request) {
         Map<String, Object> context = getContext(request);

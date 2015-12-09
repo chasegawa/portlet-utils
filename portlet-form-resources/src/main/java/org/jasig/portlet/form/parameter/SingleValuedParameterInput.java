@@ -30,14 +30,14 @@ public interface SingleValuedParameterInput extends ParameterInput {
     /**
      * Get the default value for this parameter.
      * 
-     * @return
+     * @return default value for this parameter
      */
     public String getDefaultValue();
 
     /**
      * Set the default value for this parameter.
      * 
-     * @param value
+     * @param defaultValue default value for this parameter
      */
     public void setDefaultValue(String defaultValue);
 

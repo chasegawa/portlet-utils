@@ -39,7 +39,7 @@ public class SingleChoiceParameterInput implements
     /**
      * Get a list of valid options for this parameter.
      * 
-     * @return
+     * @return list of valid options for this parameter
      */
     public List<Option> getOptions() {
         return this.options;
@@ -48,7 +48,7 @@ public class SingleChoiceParameterInput implements
     /**
      * Set a list of valid options for this parameter.
      * 
-     * @param options
+     * @param options list of valid options for this parameter
      */
     public void setOptions(List<Option> options) {
         this.options = options;
@@ -57,7 +57,7 @@ public class SingleChoiceParameterInput implements
     /**
      * Get the display configuration for this parameter.
      * 
-     * @return
+     * @return display configuration for this parameter
      */
     public SingleChoiceDisplay getDisplay() {
         return display;
@@ -66,7 +66,7 @@ public class SingleChoiceParameterInput implements
     /**
      * Set the display configuration for this parameter.
      * 
-     * @param value
+     * @param value display configuration for this parameter
      */
     public void setDisplay(SingleChoiceDisplay value) {
         this.display = value;

@@ -32,22 +32,22 @@ import javax.servlet.http.HttpServletResponse;
 public interface CrossContextRestApiInvoker {
 	
 	/**
-	 * Invokes the specified REST API using a cross-context {@link RequestDispatcher}.  
+	 * Invokes the specified REST API using a cross-context RequestDispatcher.
 	 * The <code>uri</code> parameter should be of the following format:
 	 * 
 	 * <blockquote>/contextName/resource</blockquote>
 	 * 
 	 * Don't forget the leading slash!
 	 * 
-	 * @param req
-	 * @param res
-	 * @param uri
-	 * @return
+	 * @param req HTTP Request
+	 * @param res HTTP response
+	 * @param uri REST API URI to invoke using the form /contextName/resource
+	 * @return Results of REST call
 	 */
 	RestResponse invoke(HttpServletRequest req, HttpServletResponse res, String uri);
 
 	/**
-	 * Invokes the specified REST API using a cross-context {@link RequestDispatcher}.  
+	 * Invokes the specified REST API using a cross-context RequestDispatcher.
 	 * The <code>uri</code> parameter should be of the following format:
 	 * 
 	 * <blockquote>/contextName/resource/{param1}?{param2}</blockquote>
@@ -57,13 +57,13 @@ public interface CrossContextRestApiInvoker {
 	 * the Map key as a parameter name.  For example, given param1=foo and 
 	 * param2=[foo,bar], the URI about would be converted to the following:
 	 * 
-	 * <blockquote>/contextName/resource/foo?param2=foo&param2=bar</blockquote>
+	 * <blockquote>/contextName/resource/foo?param2=foo&amp;param2=bar</blockquote>
 	 * 
-	 * @param req
-	 * @param res
-	 * @param uri
-	 * @param params
-	 * @return
+	 * @param req HTTP Request
+	 * @param res HTTP Response
+	 * @param uri REST API URI to invoke using the form /contextName/resource/{param1}?{param2}
+	 * @param params Map of parameters to inject into the URI
+	 * @return Results of REST call
 	 */
 	RestResponse invoke(HttpServletRequest req, HttpServletResponse res, 
 						String uri, Map<String, String[]> params);
