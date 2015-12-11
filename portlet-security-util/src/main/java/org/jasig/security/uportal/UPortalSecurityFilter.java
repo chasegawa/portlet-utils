@@ -21,6 +21,8 @@ package org.jasig.security.uportal;
 import java.io.IOException;
 import java.util.Collections;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 import javax.portlet.PortletContext;
@@ -39,7 +41,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.web.authentication.preauth.PreAuthenticatedAuthenticationToken;
 
 /**
  * This Security Filter, for use with Spring Security, implements {@link RenderFilter} 
@@ -84,9 +85,12 @@ public final class UPortalSecurityFilter implements RenderFilter {
             LOGGER.debug("Setting up GrantedAutorities for user '{}' -- {}", principal, authorities.toString());
 
             // Create Authentication Token
-            final PreAuthenticatedAuthenticationToken token = new PreAuthenticatedAuthenticationToken(principal, "credentials",
+            final UPortalPreAuthenticatedAuthenticationToken token = new UPortalPreAuthenticatedAuthenticationToken(principal, "credentials",
                             Collections.unmodifiableSet(authorities));
-
+            @SuppressWarnings("unchecked")
+            Map<String, List<Object>> userInfo = (Map<String, List<Object>>) req.getAttribute("org.jasig.portlet.USER_INFO_MULTIVALUED");
+            token.setUserInfoMultivalued(userInfo);
+            
             // Add Authentication Token to Session
             final PortletSession session = req.getPortletSession();
             session.setAttribute(AUTHENTICATION_TOKEN_KEY, token, PortletSession.APPLICATION_SCOPE);
