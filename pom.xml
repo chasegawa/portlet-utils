@@ -45,6 +45,7 @@
     <spring.version>3.2.1.RELEASE</spring.version>
     <spock.version>0.7-groovy-2.0</spock.version>
     <tomcat-jdbc.version>7.0.37</tomcat-jdbc.version>
+    <uportal-api.version>4.3.0-SNAPSHOT</uportal-api.version>
     
     <project.build.sourceVersion>1.6</project.build.sourceVersion>
     <project.build.targetVersion>1.6</project.build.targetVersion>
@@ -178,6 +179,13 @@
           <artifactId>portlet-api</artifactId>
           <version>${portlet-api.version}</version>
           <scope>provided</scope>
+       </dependency>
+       
+       <dependency>
+         <groupId>org.jasig.portal</groupId>
+         <artifactId>uportal-platform-api</artifactId>
+         <version>${uportal-api.version}</version>
+         <scope>provided</scope>
        </dependency>
 
         <!-- For sl4j/logback logging, see https://wiki.jasig.org/display/PLT/Logging+Best+Practices -->

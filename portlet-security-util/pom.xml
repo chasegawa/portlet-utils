@@ -32,6 +32,11 @@
     </dependency>
     
     <dependency>
+	    <groupId>org.jasig.portal</groupId>
+	    <artifactId>uportal-platform-api</artifactId>
+    </dependency>
+    
+    <dependency>
         <groupId>javax.portlet</groupId>
         <artifactId>portlet-api</artifactId>
     </dependency> 
